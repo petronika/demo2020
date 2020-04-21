@@ -1,0 +1,6 @@
+package rules
+
+rule "Empty Rule"
+when
+then
+end

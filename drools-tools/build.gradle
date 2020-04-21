@@ -1,0 +1,30 @@
+subprojects {
+	group = 'demo.drools'
+
+	apply plugin: 'maven'
+	apply plugin: 'java-library'
+	apply plugin: 'io.spring.dependency-management'
+
+	sourceCompatibility = sourceCompatibilityParam
+	targetCompatibility = targetCompatibilityParam
+
+	dependencies {
+		compileOnly('org.projectlombok:lombok')
+		annotationProcessor('org.projectlombok:lombok')
+
+		api("com.google.code.findbugs:jsr305:$jsr305ApiVersion")
+
+		compile "org.kie:kie-api:$droolsVersion"
+		compile "org.kie:kie-ci:$droolsVersion"
+
+		compile "org.drools:drools-compiler:$droolsVersion"
+
+		testImplementation("ch.qos.logback:logback-classic")
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+		}
+	}
+}

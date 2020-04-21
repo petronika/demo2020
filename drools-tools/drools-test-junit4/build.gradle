@@ -1,0 +1,4 @@
+dependencies {
+	api(project(':drools-tools:drools-support'))
+    implementation("junit:junit")
+}
